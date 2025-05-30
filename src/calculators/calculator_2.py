@@ -1,6 +1,5 @@
 from flask import request as FlaskRequest
 from typing import Dict, List
-from src.drivers.numpy_handler import NumpyHandler
 from src.drivers.interfaces.driver_handler_interface import DriverHandlerInterface
 
 class Calculator2:
@@ -30,6 +29,6 @@ class Calculator2:
         return {
             "data": {
                 "calculator": 2,
-                "result": round(calculated_number, 2).item()
+                "result": round(calculated_number, 2)
             }
         }
