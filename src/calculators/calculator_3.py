@@ -12,7 +12,7 @@ class Calculator3:
         variance = self.__calculate_variance(input_data)
         multiplication = self.__calculate_multiplication(input_data)
         self.__verify_results(variance, multiplication)
-        formated_response = self.__verify_results(multiplication)
+        formated_response = self.__format_response(variance)
 
         return formated_response
         
@@ -30,6 +30,7 @@ class Calculator3:
     def __calculate_multiplication(self, numbers: List[float]) -> float:
         multiplication = 1
         for num in numbers: multiplication *= num
+        return multiplication
 
     def __verify_results(self, variance: float, multiplication: float) -> None:
         if variance < multiplication:
@@ -39,7 +40,7 @@ class Calculator3:
         return {
             "data": {
                 "calculator": 3,
-                "value": variance,
+                "value": float(variance),
                 "success": True
             }
         }
