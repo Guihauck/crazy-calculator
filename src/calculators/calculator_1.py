@@ -1,5 +1,6 @@
 from typing import Dict
 from flask import request as FlaskRequest
+from src.errors.http_bad_request import HttpBadRequestError
 
 class Calculator1:
     def calculate(self, request: FlaskRequest) -> Dict: # type: ignore
@@ -15,7 +16,7 @@ class Calculator1:
 
     def __validate_body(self, body: Dict) -> float:
         if "number" not in body:
-            raise Exception("body mal formatado!")
+            raise HttpBadRequestError("poorly formed body")
         
         input_data = body["number"]
         return input_data

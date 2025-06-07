@@ -1,6 +1,7 @@
 from flask import request as FlaskRequest
 from typing import Dict, List
 from src.drivers.interfaces.driver_handler_interface import DriverHandlerInterface
+from src.errors.http_bad_request import HttpBadRequestError
 
 class Calculator2:
     def __init__(self, drive_handler: DriverHandlerInterface) -> None:
@@ -15,7 +16,7 @@ class Calculator2:
 
     def __validate_body(self, body:Dict) -> List[float]:
         if "numbers" not in body:
-            raise Exception("poorly formed body")
+            raise HttpBadRequestError("poorly formed body")
         
         input_data = body["numbers"]
         return input_data
