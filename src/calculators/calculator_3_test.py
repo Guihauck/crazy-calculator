@@ -15,7 +15,7 @@ class MockHandler:
         return 100000
 
 def test_calculate_with_variance_error():
-    mockrequest = MockRequest({ "numbers": [1,2,3,4,5]})
+    mockrequest = MockRequest({ "numbers": [1, 2, 3, 4, 5]})
     calculator_3 = Calculator3(MockHandlerError())
 
     with raises(Exception) as exinfo:
