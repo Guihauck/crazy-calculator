@@ -26,5 +26,5 @@ def test_calculate_with_body_error():
 
     with raises(Exception) as excepinfo:
         calculator_1.calculate(mock_request)
-    assert str(excepinfo.value) == "body mal formatado!"
+    assert str(excepinfo.value) == "poorly formed body"
    
